@@ -1,0 +1,29 @@
+/* Login Card */
+.full-center {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: linear-gradient(135deg, var(--slate-900), var(--slate-800));
+}
+.login-card {
+  width: 100%;
+  max-width: 24rem;
+  background: white;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  padding: 2.5rem 2rem;
+}
+.login-logo {
+  width: 4rem;
+  height: 4rem;
+  background: var(--blue-50);
+  color: var(--blue-600);
+  border-radius: var(--radius-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto 1.5rem;
+}

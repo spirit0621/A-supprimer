@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayMaster Pro</title>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- PDF Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+    
+    <link rel="stylesheet" href="/css/base/variables.css">
+    <link rel="stylesheet" href="/css/base/base.css">
+    <link rel="stylesheet" href="/css/base/layout.css">
+    <link rel="stylesheet" href="/css/components/avatars.css">
+    <link rel="stylesheet" href="/css/components/badges.css">
+    <link rel="stylesheet" href="/css/components/buttons.css">
+    <link rel="stylesheet" href="/css/components/cards.css">
+    <link rel="stylesheet" href="/css/components/tables.css">
+    <link rel="stylesheet" href="/css/components/forms.css">
+    <link rel="stylesheet" href="/css/components/modals.css">
+    <link rel="stylesheet" href="/css/components/toasts.css">
+    <link rel="stylesheet" href="/css/components/auth.css">
+    <link rel="stylesheet" href="/css/components/payroll.css">
+</head>
+<body>
+    <div id="app" class="app-container">
+        <!-- Navbar (dynamically injected if logged in) -->
+        <nav id="navbar" class="navbar hidden"></nav>
+        
+        <!-- Main Content (toast container, views) -->
+        <main id="main-content" class="main-content">
+            <!-- View Container -->
+            <div id="view-container"></div>
+        </main>
+        
+        <!-- Toast Notification Container -->
+        <div id="toast-container" class="toast-container"></div>
+
+    <!-- Modal Container -->
+    <div id="modal-root"></div>
+
+    <script src="/js/app.js" type="module"></script>
+</body>
+</html>

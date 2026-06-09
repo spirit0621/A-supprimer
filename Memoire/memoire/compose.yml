@@ -1,0 +1,10 @@
+services:
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: MemoireDB
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: userpassword
+    ports:
+      - "3306:3306"

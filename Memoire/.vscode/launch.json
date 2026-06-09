@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-MemoireApplication<memoire>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "victor.project.memoire.MemoireApplication",
+            "projectName": "memoire",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
