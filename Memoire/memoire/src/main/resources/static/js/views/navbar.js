@@ -8,10 +8,11 @@ export function renderNavbar() {
     }
     nav.classList.remove('hidden');
 
-    const isRH = state.user.role === 'RH';
-    
+    const isAdmin = state.user.role === 'ADMIN';
+    const isRH = isAdmin; // Ancienne compatibilité pour les comptes existants
+
     // Pour l'avatar aux initiales (Image 2: AR)
-    const initials = state.user.fullName.split(' ').map(n=>n[0]).join('').toUpperCase();
+    const initials = state.user.fullName.split(' ').map(n => n[0]).join('').toUpperCase();
 
     nav.innerHTML = `
         <div class="navbar-inner">
@@ -23,7 +24,7 @@ export function renderNavbar() {
                 <a href="#dashboard" class="nav-link ${window.location.hash === '#dashboard' ? 'active' : ''}">
                     <i class="fa-solid fa-chart-pie"></i> <span>Accueil</span>
                 </a>
-                ${isRH ? `
+                ${isAdmin ? `
                     <a href="#employees" class="nav-link ${window.location.hash === '#employees' ? 'active' : ''}">
                         <i class="fa-solid fa-users"></i> <span>Salariés</span>
                     </a>

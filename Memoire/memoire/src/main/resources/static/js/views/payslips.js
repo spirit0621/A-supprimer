@@ -1,7 +1,7 @@
 import { state } from '../state.js';
 
 export function renderPayslips(container) {
-    const isRH = state.user.role === 'RH';
+    const isAdmin = state.user.role === 'ADMIN';
     container.innerHTML = `
         <div class="page-header" style="align-items: flex-start;">
             <div>
@@ -9,8 +9,8 @@ export function renderPayslips(container) {
                 <p class="text-slate-500 mt-1">Gérez et génerez les bulletins officiels par période.</p>
             </div>
             <div class="flex gap-2">
-                ${isRH ? `<button class="btn btn-primary" onclick="ui.openGenerateModal()"><i class="fa-solid fa-wand-magic-sparkles"></i> Générer Paie</button>` : ''}
-                ${isRH ? `<button class="btn-success" onclick="ui.downloadBatch()"><i class="fa-solid fa-file-zipper"></i> Tout telecharger (ZIP)</button>` : ''}
+                ${isAdmin ? `<button class="btn btn-primary" onclick="ui.openGenerateModal()"><i class="fa-solid fa-wand-magic-sparkles"></i> Générer Paie</button>` : ''}
+                ${isAdmin ? `<button class="btn-success" onclick="ui.downloadBatch()"><i class="fa-solid fa-file-zipper"></i> Tout telecharger (ZIP)</button>` : ''}
             </div>
         </div>
         
@@ -67,15 +67,15 @@ export function renderPayslips(container) {
     const update = () => {
         const filtered = state.payslips.filter(p => {
             const emp = state.employees.find(e => e.id === p.employeeId);
-            if(!emp) return false;
+            if (!emp) return false;
 
             const nameMatch = `${emp.firstName} ${emp.lastName}`.toLowerCase().includes(state.filters.paySearch.toLowerCase());
             const estMatch = state.filters.payEst === 'all' || emp.establishment === state.filters.payEst;
-            
+
             const date = new Date(p.period);
             const periodStr = date.toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' }).toLowerCase();
             const periodMatch = periodStr.includes(state.filters.payPeriod.toLowerCase());
-            
+
             const netStr = p.netSalary.toString();
             const netMatch = netStr.includes(state.filters.payNet);
 

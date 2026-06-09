@@ -4,7 +4,7 @@ export function renderDashboard(container) {
     const totalEmployees = state.employees.length;
     const totalPayroll = state.employees.reduce((acc, e) => acc + (e.baseSalary || 0), 0);
     const totalOvertime = state.employees.reduce((acc, e) => acc + (e.customValues ? (parseFloat(e.customValues['HEURES_SUP']) || 0) : 0), 0);
-    
+
     container.innerHTML = `
         <div class="dashboard-hero">
             <div class="dashboard-hero-content">
@@ -46,7 +46,7 @@ export function renderDashboard(container) {
                 <div class="flex gap-4">
                     <div class="text-2xl"><i class="fa-solid fa-bullhorn"></i></div>
                     <div>
-                        <h4 class="font-bold mb-1">Note d'information (RH)</h4>
+                        <h4 class="font-bold mb-1">Note d'information (ADMIN)</h4>
                         <p class="text-sm opacity-90">
                             La période de saisie des variables se termine le 25 du mois. 
                             Assurez-vous que toutes les primes exceptionnelles sont validées avant cette date pour l'export bancaire.

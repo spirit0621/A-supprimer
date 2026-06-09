@@ -24,8 +24,13 @@ export function renderLogin(container) {
     `;
     document.getElementById('login-form').addEventListener('submit', async (e) => {
         e.preventDefault();
-        const success = await api.login(document.getElementById('username').value, document.getElementById('password').value);
-        if (success) navigateTo('dashboard');
-        else ui.showToast('Erreur de connexion', 'error');
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const result = await api.login(username, password);
+        if (result.success) {
+            navigateTo('dashboard');
+        } else {
+            ui.showToast(result.message || 'Erreur de connexion', 'error');
+        }
     });
 }

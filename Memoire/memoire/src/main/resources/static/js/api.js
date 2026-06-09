@@ -14,12 +14,13 @@ export const api = {
                 const user = await res.json();
                 state.user = user;
                 localStorage.setItem('paymaster_user', JSON.stringify(user));
-                return true;
+                return { success: true, user };
             }
-            return false;
+            const errorText = await res.text();
+            return { success: false, message: errorText || 'Erreur de connexion' };
         } catch (e) {
             console.error(e);
-            return false;
+            return { success: false, message: 'Erreur de connexion' };
         }
     },
     logout() {
@@ -30,7 +31,7 @@ export const api = {
     async fetchAll() {
         if (!state.user) return;
         try {
-            if (state.user.role === 'RH') {
+            if (state.user.role === 'ADMIN') {
                 const [emps, pays, vars, depts] = await Promise.all([
                     fetch('/api/employees').then(r => r.json()),
                     fetch('/api/payslips').then(r => r.json()),
@@ -44,7 +45,7 @@ export const api = {
             } else {
                 const pays = await fetch(`/api/payslips?employeeId=${state.user.employeeId}`).then(r => r.json());
                 state.payslips = pays;
-                // Fetch basic info for non-RH too if needed
+                // Fetch basic info for non-ADMIN too if needed
             }
         } catch (e) {
             console.error('Error fetching data:', e);

@@ -38,7 +38,7 @@ public class DashboardApiController {
         Iterable<Utilisateur> utilisateurs = utilisateurRepository.findAll();
 
         for (Utilisateur user : utilisateurs) {
-            // Exclure les utilisateurs RH/ADMIN de la liste des salariés gérés dans la vue dashboard/employés
+            // Exclure les utilisateurs ADMIN (anciennement RH) de la liste des salariés gérés dans la vue dashboard/employés
             if ("RH".equalsIgnoreCase(user.getRole()) || "ADMIN".equalsIgnoreCase(user.getRole())) {
                 continue;
             }

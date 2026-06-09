@@ -98,7 +98,7 @@ public class UserSeed implements CommandLineRunner {
         admin.setNom("Martin");
         admin.setEmail("admin");
         admin.setMotDePasse(passwordEncoder.encode("admin"));
-        admin.setRole("RH");
+        admin.setRole("ADMIN");
         admin.setNsc("1234567890123");
         admin.setIban("FR7630006000011234567890189");
         admin.setAdresse("3 Rue Voltaire");

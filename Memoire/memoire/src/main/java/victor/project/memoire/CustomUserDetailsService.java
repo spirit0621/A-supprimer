@@ -49,7 +49,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         Set<GrantedAuthority> authorities = new HashSet<>();
         String role = utilisateur.getRole();
         if (role != null && ("ADMIN".equalsIgnoreCase(role) || "RH".equalsIgnoreCase(role))) {
-            authorities.add(new SimpleGrantedAuthority("ROLE_RH"));
+            authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
         } else {
             authorities.add(new SimpleGrantedAuthority("ROLE_EMPLOYE"));
         }
